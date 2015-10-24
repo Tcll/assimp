@@ -16,7 +16,10 @@ import logging;logger = logging.getLogger("pyassimp")
 
 from .errors import AssimpError
 
-additional_dirs, ext_whitelist = [],[]
+import sys
+additional_dirs, ext_whitelist = [
+    os.path.dirname( sys.modules['pyassimp'].__file__ ).replace('\\','/')+'/DLLS/'
+    ],[]
 
 # populate search directories and lists of allowed file extensions
 # depending on the platform we're running on.
